@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'home',
+    'crawler',
     'scanner',
     'django.contrib.admin',
     'django.contrib.auth',
