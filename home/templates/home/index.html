@@ -6,9 +6,50 @@
 
 {% block content %}
 
-    <div>
+    <div class="container text-center bd-gray-500">
 
-        <h1>Homepage</h1>
 
+        <form class="my-5" action="" method='POST'>
+            {% csrf_token %} 
+            <label for="uname" class="h1 form-label"><b>проверить сайт:</b></label>
+            <div class="mx-5 row align-items-start">
+              <input type="text" class="m-2 col form-control" placeholder="https://site-example.com/" name='siteurl' id="siteurl">
+              <button type="submit" class="m-2 col-2 btn btn-primary"><b>проверить</b></button>
+            </div>
+        </form>
+
+        <div class="row align-items-start">
+            <div class="col border rounded-3 m-2 p-3">
+                Тут будут всякие квадратики с фото и текстом
+                про то как народ обманывает в интернетах
+            </div>
+            <div class="col border rounded-3 m-2 p-3">
+                Тут будут всякие квадратики с фото и текстом
+                про то как народ обманывает в интернетах
+            </div>
+            <div class="col border rounded-3 m-2 p-3">
+                Тут будут всякие квадратики с фото и текстом
+                про то как народ обманывает в интернетах
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col border rounded-3 m-2 p-3">
+                Тут будут всякие квадратики с фото и текстом
+                про то как народ обманывает в интернетах
+            </div>
+            <div class="col border rounded-3 m-2 p-3">
+                Тут будут всякие квадратики с фото и текстом
+                про то как народ обманывает в интернетах
+            </div>
+            <div class="col border rounded-3 m-2 p-3">
+                Тут будут всякие квадратики с фото и текстом
+                про то как народ обманывает в интернетах
+            </div>
+        </div>
+        <div class="row align-items-end">
+            <div class="col  text-start border rounded-3 m-2 p-3">
+                <b>Тут список сайтов уже проверенных и результаты проверок</b>
+            </div>
+        </div>
     </div>
 {% endblock content %}
