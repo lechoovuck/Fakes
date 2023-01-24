@@ -28,14 +28,6 @@ def useful(request):
         'tested': False
         })
     
-def tested(request):
-    return render(request, "home/tested.html", {
-        'obj': 'Проверенные сайты',
-        'home': False,
-        'check': False,
-        'useful': False,
-        'tested': True
-        })
 
 
 

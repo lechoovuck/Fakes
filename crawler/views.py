@@ -1,4 +1,4 @@
-
+'''
 from uuid import uuid4
 from urllib.parse import urlparse
 from django.core.validators import URLValidator
@@ -8,7 +8,6 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from scrapyd_api import ScrapydAPI
-from .utils import URLUtil
 from .models import ScrapyItem
 
 # connect scrapyd service
@@ -87,3 +86,4 @@ def crawl(request):
                 return JsonResponse({'error': str(e)})
         else:
             return JsonResponse({'status': status})
+'''

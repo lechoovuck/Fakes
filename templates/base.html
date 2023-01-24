@@ -22,7 +22,7 @@
         </button>
         <div class="collapse navbar-collapse d-flex justify-content-around" id="navbarNavAltMarkup">
           <div class="d-flex justify-content-evenly navbar-nav nav-fill">
-            <a class="p-2 nav-link  {% if check %}active{% endif %}" aria-current="page" href="{% url 'check-page' %}">Проверка сайта</a>
+            <a class="p-2 nav-link  {% if check %}active{% endif %}" aria-current="page" href="{% url 'index' %}">Проверка сайта</a>
             <a class="p-2 nav-link {% if useful %}active{% endif %}" href="{% url 'useful-info' %}">Полезная информация</a>
             <a class="p-2 nav-link {% if tested %}active{% endif %}" href="{% url 'tested-sites' %}">Проверенные сайты</a>
           </div>

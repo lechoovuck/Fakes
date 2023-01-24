@@ -1,7 +1,7 @@
 import json
 from django.db import models
 from django.utils import timezone
-
+'''
 class ScrapyItem(models.Model):
     unique_id = models.CharField(max_length=100, null=True)
     data = models.TextField() # this stands for our crawled data
@@ -18,3 +18,4 @@ class ScrapyItem(models.Model):
 
     def __str__(self):
         return self.unique_id
+    '''
