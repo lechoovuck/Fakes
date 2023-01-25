@@ -1,20 +1,50 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
     {{obj.title}}
 {% endblock title %}
 
+{% block scripts %}
+    <script defer src="{% static 'home/results.js' %}" ></script>
+{% endblock scripts %}
+
 {% block content %}
     <div class="container text-center bd-gray-500">
-        <form class="my-5" action="" method='POST'>
+        <form class="my-5" action="/" method='POST' id="form">
             {% csrf_token %} 
             <label for="uname" class="h1 form-label"><b>проверить сайт:</b></label>
             <div class="mx-5 row align-items-start">
-              <input type="text" class="m-2 col form-control" placeholder="https://site-example.com/" name='siteurl' id="siteurl">
-              <button type="submit" class="m-2 col-2 btn btn-primary"><b>проверить</b></button>
+                <input name='siteurl' id="siteurl" type="text" class="m-2 col form-control" pattern="[Hh][Tt][Tt][Pp][Ss]?:\/\/(?:(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)(?:\.(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)*(?:\.(?:[a-zA-Z\u00a1-\uffff]{2,}))(?::\d{2,5})?(?:\/[^\s]*)?" required placeholder = "адрес в формате https://example.com" >
+
+                <button id="mdlButton"class="m-2 col-2 btn btn-primary" type = "submit" value = "Check" data-bs-toggle="modal" data-bs-target="#checkButton">
+                    <strong>проверить</strong>
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="checkButton" tabindex="-1" aria-labelledby="checkButtonLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="checkButtonLabel">Результат</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body d-flex justify-content-center" id="modal-body-result">
+                            <div class="spinner-border  m-2 text-secondary" role="status"></div>
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+  
+
+
             </div>
         </form>
-
         <div class="row align-items-start">
             <div class="col border rounded-3 m-2 p-3">
                 Тут будут всякие квадратики с фото и текстом
