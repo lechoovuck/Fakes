@@ -1,16 +1,17 @@
 import json
 from django.db import models
 from django.utils import timezone
-'''
+
 class ScrapyItem(models.Model):
+    start_url = models.URLField(max_length=120,help_text="Please use the following format http://example.com or https://example.com")
     unique_id = models.CharField(max_length=100, null=True)
-    data = models.TextField() # this stands for our crawled data
+    data = models.TextField() 
     date = models.DateTimeField(default=timezone.now)
     
-    # This is for basic and custom serialisation to return it to client as a JSON.
     @property
     def to_dict(self):
         data = {
+            'start url': self.start_url,
             'data': json.loads(self.data),
             'date': self.date
         }
@@ -18,4 +19,4 @@ class ScrapyItem(models.Model):
 
     def __str__(self):
         return self.unique_id
-    '''
+    

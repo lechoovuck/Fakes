@@ -6,24 +6,31 @@
 #     https://docs.scrapy.org/en/latest/topics/settings.html
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
+import os
+import sys
+
+sys.path.append(os.path.dirname(os.path.abspath('.')))
+os.environ['DJANGO_SETTINGS_MODULE'] = 'Fakes.settings'
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Fakes.settings')
+
+
+import django
+django.setup()
+
+
+import os
+os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
+django.setup()
+    
+from crawler.models import ScrapyItem
+ScrapyItem.objects.all()
+
+
 
 BOT_NAME = 'scrapy_app'
 
 SPIDER_MODULES = ['scrapy_app.spiders']
 NEWSPIDER_MODULE = 'scrapy_app.spiders'
-
-import os
-import sys
-
-# DJANGO INTEGRATION
-
-sys.path.append(os.path.dirname(os.path.abspath('.')))
-# Do not forget the change iCrawler part based on your project name
-os.environ['DJANGO_SETTINGS_MODULE'] = 'Fakes.settings'
-
-# This is required only if Django Version > 1.8
-import django
-django.setup()
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'scrapy_app (+http://www.yourdomain.com)'
@@ -74,9 +81,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'scrapy_app.pipelines.ScrapyAppPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'scrapy_app.pipelines.ScrapyAppPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

@@ -7,12 +7,13 @@
 {% block content %}
   <nav class="bd-subnavbar py-2 mx-2" aria-label="Secondary navigation">
     <div class="d-flex align-items-md-center">
+      <form action="/" method="GET" id="form">
         <a target="_self" 
           class="btn btn-info pull-right" 
           href="{% url 'pull-malware-sites' %}">
           Обновить базу данных
         </a>      
-
+      </form>
   </nav>
 
 
@@ -29,7 +30,7 @@
 
         <tr>
           <th scope="row">{{i.id}}</th>
-          <td style="background-color: #f1aeb5;">{{i.url}}</td>
+          <td style="width: fit-content; background-color:  {% if i.malicious == 1 %}#f1aeb5{% endif %} {% if i.malicious == 0 %}#75b798{% endif %};">{{i.url}}</td>
         </tr>
 
         {% endfor %}
