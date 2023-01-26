@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
   <head>
     <meta charset="utf-8">
@@ -16,7 +17,9 @@
   <body>
     <nav class="navbar navbar-expand-xl bg-primary navbar-dark">
       <div class="container-fluid ">
-        <a class="navbar-brand " href="{% url 'index' %}">LOGO</a>
+        <a class="navbar-brand " href="{% url 'index' %}">
+          <img class="img-fluid" style="height: 8vh;" src="{% static 'img/logo.png' %}" alt="logo">            
+        </a>
         <div class="collapse navbar-collapse d-flex justify-content-around" id="navbarNavAltMarkup">
           <div class="d-flex justify-content-evenly navbar-nav nav-fill">
             <a class="p-2 nav-link  {% if check %}active{% endif %}" aria-current="page" href="{% url 'index' %}">Проверка сайта</a>
@@ -38,10 +41,10 @@
   </body>
 
   <footer class=" d-flex flex-wrap justify-content-between align-items-center py-2 my-2 border-top">
-    <p class="col-md-4 mb-0 text-muted">© 2023 Наша команда</p>
+    <p class="col-md-4 mb-0 text-muted">© 2023 Команда 4578</p>
 
     <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none text-secondary">
-      <b>UrFU</b>
+      <b>УрФУ</b>
     </a>
 
     <ul class="nav col-md-4 justify-content-end">
