@@ -17,13 +17,10 @@
     <nav class="navbar navbar-expand-xl bg-primary navbar-dark">
       <div class="container-fluid ">
         <a class="navbar-brand " href="{% url 'index' %}">LOGO</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
         <div class="collapse navbar-collapse d-flex justify-content-around" id="navbarNavAltMarkup">
           <div class="d-flex justify-content-evenly navbar-nav nav-fill">
             <a class="p-2 nav-link  {% if check %}active{% endif %}" aria-current="page" href="{% url 'index' %}">Проверка сайта</a>
-            <a class="p-2 nav-link {% if useful %}active{% endif %}" href="{% url 'useful-info' %}">Полезная информация</a>
+            {% comment %} <a class="p-2 nav-link {% if useful %}active{% endif %}" href="{% url 'useful-info' %}">Полезная информация</a> {% endcomment %}
             <a class="p-2 nav-link {% if tested %}active{% endif %}" href="{% url 'tested-sites' %}">Проверенные сайты</a>
           </div>
         </div>
